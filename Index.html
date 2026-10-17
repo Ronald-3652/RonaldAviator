@@ -2,481 +2,185 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Us — Relationship Confirmation</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="theme-color" content="#0a1220">
+<title>bet Rocket - RonaldFx</title>
 <style>
-  :root{
-    --pink:#ff5c8a;
-    --pink-dark:#e04370;
-    --bg:#fff5f7;
-    --card:#ffffff;
-    --text:#2b2233;
-    --muted:#8a7d90;
-    --border:#f0dce3;
-  }
-  *{box-sizing:border-box;}
-  body{
-    margin:0;
-    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-    background:var(--bg);
-    color:var(--text);
-    min-height:100vh;
-  }
-  header{
-    text-align:center;
-    padding:32px 16px 8px;
-  }
-  header h1{
-    margin:0;
-    font-size:1.8rem;
-    color:var(--pink-dark);
-  }
-  header p{
-    color:var(--muted);
-    margin:6px 0 0;
-    font-size:0.95rem;
-  }
-  .container{
-    max-width:480px;
-    margin:0 auto;
-    padding:16px;
-  }
-  nav{
-    display:flex;
-    gap:8px;
-    margin-bottom:20px;
-    background:var(--card);
-    border-radius:12px;
-    padding:6px;
-    border:1px solid var(--border);
-  }
-  nav button{
-    flex:1;
-    padding:10px;
-    border:none;
-    background:transparent;
-    border-radius:8px;
-    cursor:pointer;
-    font-weight:600;
-    color:var(--muted);
-    transition:.2s;
-  }
-  nav button.active{
-    background:var(--pink);
-    color:white;
-  }
-  .view{display:none;}
-  .view.active{display:block;}
-  .card{
-    background:var(--card);
-    border:1px solid var(--border);
-    border-radius:16px;
-    padding:20px;
-    margin-bottom:16px;
-  }
-  label{
-    display:block;
-    font-size:0.85rem;
-    font-weight:600;
-    margin:12px 0 6px;
-    color:var(--muted);
-  }
-  input[type=text], input[type=password]{
-    width:100%;
-    padding:11px 12px;
-    border-radius:10px;
-    border:1px solid var(--border);
-    font-size:1rem;
-    outline:none;
-  }
-  input:focus{border-color:var(--pink);}
-  input[type=file]{width:100%;}
-  button.primary{
-    margin-top:18px;
-    width:100%;
-    padding:12px;
-    border:none;
-    border-radius:10px;
-    background:var(--pink);
-    color:white;
-    font-weight:700;
-    font-size:1rem;
-    cursor:pointer;
-  }
-  button.primary:hover{background:var(--pink-dark);}
-  button.secondary{
-    width:100%;
-    padding:12px;
-    border-radius:10px;
-    border:1px solid var(--pink);
-    background:transparent;
-    color:var(--pink-dark);
-    font-weight:700;
-    cursor:pointer;
-    margin-top:8px;
-  }
-  button.danger{
-    background:#fff0f0;
-    color:#c0392b;
-    border:1px solid #f3c0c0;
-  }
-  .avatar{
-    width:64px;height:64px;border-radius:50%;
-    object-fit:cover;
-    background:#eee;
-    border:2px solid var(--pink);
-  }
-  .row{
-    display:flex;
-    align-items:center;
-    gap:12px;
-  }
-  .row .name{font-weight:700;}
-  .row .sub{font-size:0.8rem;color:var(--muted);}
-  .pending-item{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:10px 0;
-    border-bottom:1px solid var(--border);
-  }
-  .pending-item:last-child{border-bottom:none;}
-  .pending-actions button{
-    padding:6px 10px;
-    border-radius:8px;
-    border:none;
-    font-weight:600;
-    cursor:pointer;
-    margin-left:6px;
-    font-size:0.85rem;
-  }
-  .accept{background:var(--pink);color:white;}
-  .decline{background:#eee;color:#555;}
-  .couple-banner{
-    text-align:center;
-    padding:24px 16px;
-    background:linear-gradient(135deg,#ffe4ec,#fff);
-    border-radius:16px;
-    border:1px solid var(--border);
-  }
-  .couple-photos{
-    display:flex;
-    justify-content:center;
-    gap:-10px;
-    margin-bottom:12px;
-  }
-  .couple-photos img{
-    width:84px;height:84px;border-radius:50%;
-    object-fit:cover;
-    border:3px solid white;
-    box-shadow:0 2px 6px rgba(0,0,0,0.15);
-  }
-  .couple-photos img:last-child{margin-left:-20px;}
-  .couple-title{font-size:1.3rem;font-weight:700;color:var(--pink-dark);margin:6px 0 2px;}
-  .couple-sub{color:var(--muted);font-size:0.85rem;}
-  .msg{
-    font-size:0.85rem;
-    padding:10px 12px;
-    border-radius:10px;
-    margin-top:10px;
-  }
-  .msg.error{background:#fff0f0;color:#c0392b;}
-  .msg.success{background:#eefaf0;color:#1e8a4c;}
-  .empty{color:var(--muted);font-size:0.9rem;text-align:center;padding:20px 0;}
-  .note{
-    font-size:0.75rem;
-    color:var(--muted);
-    text-align:center;
-    margin-top:24px;
-    line-height:1.5;
-  }
+:root{--bg:#0a1220;--card:#141e30;--card2:#1d2a42;--cyan:#19d3c5;--gold:#ffc93c;--red:#ff4d5e;--text:#f1f5fb;--muted:#8896ad}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;user-select:none}
+body{font-family:-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);max-width:480px;margin:0 auto;min-height:100vh;padding-bottom:20px}
+.top{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;background:#070d18;border-bottom:2px solid var(--cyan)}
+.logo{font-weight:800;font-size:18px}.logo span{color:var(--cyan)}
+.bal{background:var(--card2);padding:7px 12px;border-radius:20px;font-weight:700;font-size:14px}
+.bal b{color:var(--gold)}
+.history{display:flex;gap:6px;padding:10px 14px;overflow-x:auto;scrollbar-width:none}
+.history::-webkit-scrollbar{display:none}
+.chip{flex:0 0 auto;padding:4px 10px;border-radius:12px;font-size:12px;font-weight:700;background:var(--card2)}
+.chip.hi{color:var(--cyan)}.chip.lo{color:var(--red)}.chip.mid{color:var(--gold)}
+.stage{position:relative;margin:0 14px;height:260px;border-radius:18px;overflow:hidden;
+  background:radial-gradient(circle at 15% 100%,#0e3a42,#0a1220 70%);border:1px solid #1b3b48}
+canvas{position:absolute;inset:0;width:100%;height:100%}
+#rocket{position:absolute;font-size:30px;transition:none;transform:translate(-50%,-50%) rotate(-35deg)}
+.mult{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:none}
+#m{font-size:54px;font-weight:900;text-shadow:0 0 20px rgba(25,211,197,.4)}
+#msg{font-size:13px;color:var(--muted);margin-top:4px}
+.crashed #m{color:var(--red);text-shadow:0 0 20px rgba(255,77,94,.5)}
+.panel{margin:14px;background:var(--card);border-radius:16px;padding:14px}
+.row{display:flex;gap:8px;align-items:center}
+.row label{font-size:12px;color:var(--muted)}
+input{width:100%;background:var(--card2);border:1px solid #2a3a58;color:var(--text);font-size:20px;font-weight:700;text-align:center;padding:10px;border-radius:10px;outline:none}
+.quick{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:10px 0}
+.quick button{background:var(--card2);border:0;color:var(--text);padding:9px;border-radius:8px;font-weight:700;font-size:13px}
+#go{width:100%;border:0;border-radius:12px;padding:16px;font-size:18px;font-weight:800;color:#04201e;background:var(--cyan);margin-top:4px}
+#go.cash{background:var(--gold);color:#2b1f00}
+#go.wait{background:var(--card2);color:var(--muted)}
+.auto{display:flex;align-items:center;gap:8px;margin-top:12px;font-size:13px;color:var(--muted)}
+.auto input{width:80px;font-size:15px;padding:6px}
+.note{text-align:center;color:var(--muted);font-size:11px;margin:10px 14px;line-height:1.5}
 </style>
 </head>
 <body>
-
-<header>
-  <h1>💞 Us</h1>
-  <p>A relationship is only confirmed when <strong>both</strong> people agree.</p>
-</header>
-
-<div class="container">
-  <nav>
-    <button id="tab-account" class="active" onclick="switchTab('account')">Account</button>
-    <button id="tab-requests" onclick="switchTab('requests')">Requests</button>
-    <button id="tab-status" onclick="switchTab('status')">Status</button>
-  </nav>
-
-  <div id="view-account" class="view active">
-    <div class="card" id="loginCard">
-      <h3 style="margin-top:0;">Create / Switch Profile</h3>
-      <label>Your display name</label>
-      <input type="text" id="loginName" placeholder="e.g. Amara K.">
-      <label>Photo (optional)</label>
-      <input type="file" id="loginPhoto" accept="image/*">
-      <button class="primary" onclick="createOrSwitchProfile()">Continue</button>
-      <div id="accountMsg"></div>
-    </div>
-
-    <div class="card" id="profileCard" style="display:none;">
-      <div class="row">
-        <img id="myAvatar" class="avatar" src="">
-        <div>
-          <div class="name" id="myName"></div>
-          <div class="sub">This device's active profile</div>
-        </div>
-      </div>
-      <button class="secondary" onclick="logout()">Switch profile</button>
-    </div>
-
-    <div class="card">
-      <h3 style="margin-top:0;">Send a Request</h3>
-      <label>Their exact display name</label>
-      <input type="text" id="requestTarget" placeholder="Enter their name exactly">
-      <button class="primary" onclick="sendRequest()">Send Relationship Request</button>
-      <div id="requestMsg"></div>
-    </div>
-  </div>
-
-  <div id="view-requests" class="view">
-    <div class="card">
-      <h3 style="margin-top:0;">Incoming Requests</h3>
-      <div id="incomingList"><div class="empty">No pending requests.</div></div>
-    </div>
-    <div class="card">
-      <h3 style="margin-top:0;">Outgoing Requests</h3>
-      <div id="outgoingList"><div class="empty">You haven't sent any requests.</div></div>
-    </div>
-  </div>
-
-  <div id="view-status" class="view">
-    <div id="statusArea"></div>
-  </div>
-
-  <div class="note">
-    Demo build: all data lives only in this browser tab's memory (no server, no ID numbers, no biometrics) and resets on page reload. For real use you'd connect this front-end to a proper backend + database.
-  </div>
+<div class="top">
+  <div class="logo">Trade <span>Rocket</span></div>
+  <div class="bal">💰 <b id="bal">1000</b></div>
 </div>
 
+<div class="history" id="hist"></div>
+
+<div class="stage" id="stage">
+  <canvas id="cv"></canvas>
+  <div id="rocket">🚀</div>
+  <div class="mult"><div id="m">1.00x</div><div id="msg">Place your bet</div></div>
+</div>
+
+<div class="panel">
+  <div class="row"><div style="flex:1"><label>Bet amount (demo points)</label>
+    <input id="bet" type="number" value="50" min="10" inputmode="numeric"></div></div>
+  <div class="quick">
+    <button data-v="10">10</button><button data-v="50">50</button>
+    <button data-v="100">100</button><button data-v="500">500</button>
+  </div>
+  <button id="go">BET</button>
+  <div class="auto">Auto cash out at <input id="auto" type="number" step="0.1" min="1.1" placeholder="2.0"> x</div>
+</div>
+
+<p class="note">Demo game with virtual points only. No real money.<br>© 2026 RonaldFx</p>
+
 <script>
-const db = {
-  profiles: {},
-  requests: [],
-  relationships: []
+const $=id=>document.getElementById(id);
+const cv=$('cv'),ctx=cv.getContext('2d'),rocket=$('rocket'),stage=$('stage');
+let balance=1000,state='idle',mult=1,crashAt=2,start=0,betAmt=0,placed=false,cashed=false,hist=[];
+const DPR=devicePixelRatio||1;
+function resize(){cv.width=cv.offsetWidth*DPR;cv.height=cv.offsetHeight*DPR}
+resize();addEventListener('resize',resize);
+
+function genCrash(){
+  const r=Math.random();
+  if(r<0.04) return 1.00;
+  return Math.min(Math.floor(97/(1-Math.random()))/100,200);
+}
+function setBtn(text,cls){const b=$('go');b.textContent=text;b.className=cls||''}
+function addHist(v){
+  hist.unshift(v);hist=hist.slice(0,15);
+  $('hist').innerHTML=hist.map(x=>`<div class="chip ${x>=2?'hi':x<1.5?'lo':'mid'}">${x.toFixed(2)}x</div>`).join('');
+}
+function updBal(){$('bal').textContent=Math.floor(balance)}
+
+document.querySelectorAll('.quick button').forEach(b=>b.onclick=()=>{if(!placed)$('bet').value=b.dataset.v});
+
+$('go').onclick=()=>{
+  if(state==='flying' && placed && !cashed){cashOut();return}
+  if(state==='idle' && !placed){
+    const a=Math.floor(+$('bet').value);
+    if(!a||a<10){$('msg').textContent='Minimum bet is 10';return}
+    if(a>balance){$('msg').textContent='Not enough points';return}
+    balance-=a;betAmt=a;placed=true;cashed=false;updBal();
+    setBtn('Waiting for next round...','wait');
+    $('msg').textContent='Bet placed: '+a;
+  }
 };
 
-let currentUser = null;
-
-function fileToDataUrl(file){
-  return new Promise((resolve) => {
-    if(!file){ resolve(null); return; }
-    const reader = new FileReader();
-    reader.onload = () => resolve(reader.result);
-    reader.readAsDataURL(file);
-  });
+function cashOut(){
+  cashed=true;
+  const win=betAmt*mult;balance+=win;updBal();
+  $('msg').textContent='Cashed out +'+Math.floor(win-betAmt)+' at '+mult.toFixed(2)+'x';
+  setBtn('Cashed out ✔','wait');
 }
 
-function switchTab(tab){
-  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
-  document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
-  document.getElementById('view-' + tab).classList.add('active');
-  document.getElementById('tab-' + tab).classList.add('active');
-  if(tab === 'requests') renderRequests();
-  if(tab === 'status') renderStatus();
+function round(){
+  state='countdown';stage.classList.remove('crashed');
+  let c=4;
+  if(!placed) setBtn('BET');
+  const iv=setInterval(()=>{
+    c--;
+    $('m').textContent='1.00x';
+    $('msg').textContent=c>0?(placed?'Bet placed. Starting in '+c:'Next round in '+c+'s'):'';
+    if(c<=0){clearInterval(iv);fly()}
+  },1000);
+  $('msg').textContent=placed?'Bet placed. Starting in 3':'Next round in 3s';
+  state='idle';
 }
 
-function showMsg(elId, text, type){
-  const el = document.getElementById(elId);
-  el.innerHTML = `<div class="msg ${type}">${text}</div>`;
-  setTimeout(()=>{ el.innerHTML=''; }, 4000);
+function fly(){
+  state='flying';crashAt=genCrash();start=performance.now();mult=1;
+  if(placed) setBtn('CASH OUT','cash'); else setBtn('Round in progress','wait');
+  requestAnimationFrame(loop);
 }
 
-function activeRelationshipFor(name){
-  return db.relationships.find(r => r.active && (r.a === name || r.b === name));
+function loop(now){
+  if(state!=='flying')return;
+  const t=(now-start)/1000;
+  mult=Math.pow(Math.E,0.11*t*1.0)+0.0*t; // smooth exponential growth
+  if(mult>=crashAt){mult=crashAt;draw(t);return crash()}
+  $('m').textContent=mult.toFixed(2)+'x';
+  if(placed&&!cashed){
+    const a=parseFloat($('auto').value);
+    if(a>=1.1&&mult>=a){cashOut()}
+    else setBtn('CASH OUT  '+Math.floor(betAmt*mult),'cash');
+  }
+  draw(t);
+  requestAnimationFrame(loop);
 }
 
-async function createOrSwitchProfile(){
-  const nameInput = document.getElementById('loginName');
-  const photoInput = document.getElementById('loginPhoto');
-  const name = nameInput.value.trim();
-
-  if(!name){
-    showMsg('accountMsg', 'Please enter a display name.', 'error');
-    return;
+function draw(t){
+  const w=cv.width,h=cv.height;ctx.clearRect(0,0,w,h);
+  const prog=Math.min((mult-1)/Math.max(mult,2.5),1);
+  const ex=w*(0.08+0.8*Math.min(t/10,1));
+  const ey=h-(h*0.12)-prog*h*0.7;
+  const pts=[];
+  for(let i=0;i<=50;i++){
+    const f=i/50;
+    pts.push([f*(ex-w*0.04)+w*0.04, h-h*0.12-Math.pow(f,2)*(h-h*0.12-ey)]);
   }
-
-  let photo = null;
-  if(photoInput.files[0]){
-    photo = await fileToDataUrl(photoInput.files[0]);
-  }
-
-  if(!db.profiles[name]){
-    db.profiles[name] = { name, photo: photo || null };
-  } else if(photo){
-    db.profiles[name].photo = photo;
-  }
-
-  currentUser = name;
-  renderAccount();
-  showMsg('accountMsg', `Welcome, ${name}!`, 'success');
+  ctx.beginPath();ctx.moveTo(pts[0][0],h);
+  pts.forEach(p=>ctx.lineTo(p[0],p[1]));
+  ctx.lineTo(pts[50][0],h);ctx.closePath();
+  const g=ctx.createLinearGradient(0,0,0,h);
+  g.addColorStop(0,'rgba(25,211,197,.35)');g.addColorStop(1,'rgba(25,211,197,0)');
+  ctx.fillStyle=g;ctx.fill();
+  ctx.beginPath();pts.forEach((p,i)=>i?ctx.lineTo(p[0],p[1]):ctx.moveTo(p[0],p[1]));
+  ctx.strokeStyle=state==='crashed'?'#ff4d5e':'#19d3c5';
+  ctx.lineWidth=4*DPR;ctx.lineCap='round';ctx.stroke();
+  const e=pts[50];
+  rocket.style.left=(e[0]/DPR)+'px';rocket.style.top=(e[1]/DPR)+'px';
 }
 
-function logout(){
-  currentUser = null;
-  renderAccount();
+function crash(){
+  state='crashed';
+  stage.classList.add('crashed');
+  $('m').textContent=mult.toFixed(2)+'x';
+  rocket.textContent='💥';
+  addHist(mult);
+  if(placed&&!cashed){$('msg').textContent='Crashed! You lost '+betAmt}
+  else if(!placed){$('msg').textContent='Crashed at '+mult.toFixed(2)+'x'}
+  placed=false;cashed=false;betAmt=0;
+  if(balance<10){balance=1000;updBal();$('msg').textContent='Balance reset to 1000 demo points'}
+  setBtn('BET');
+  setTimeout(()=>{rocket.textContent='🚀';ctx.clearRect(0,0,cv.width,cv.height);rocket.style.left='4%';rocket.style.top='88%';round()},2500);
 }
 
-function renderAccount(){
-  const loginCard = document.getElementById('loginCard');
-  const profileCard = document.getElementById('profileCard');
-  if(currentUser){
-    loginCard.style.display = 'none';
-    profileCard.style.display = 'block';
-    const p = db.profiles[currentUser];
-    document.getElementById('myName').textContent = p.name;
-    document.getElementById('myAvatar').src = p.photo || placeholderAvatar(p.name);
-  } else {
-    loginCard.style.display = 'block';
-    profileCard.style.display = 'none';
-  }
-}
-
-function placeholderAvatar(name){
-  const initial = (name || '?').trim()[0]?.toUpperCase() || '?';
-  const svg = `<svg xmlns='http://www.w3.org/2000/svg' width='64' height='64'>
-    <rect width='100%' height='100%' fill='%23ffd6e3'/>
-    <text x='50%' y='55%' font-size='28' text-anchor='middle' fill='%23e04370' font-family='sans-serif'>${initial}</text>
-  </svg>`;
-  return 'data:image/svg+xml,' + encodeURIComponent(svg);
-}
-
-function sendRequest(){
-  if(!currentUser){
-    showMsg('requestMsg', 'Create a profile first.', 'error');
-    return;
-  }
-  const target = document.getElementById('requestTarget').value.trim();
-  if(!target){
-    showMsg('requestMsg', 'Enter the name of the person you want to send a request to.', 'error');
-    return;
-  }
-  if(target === currentUser){
-    showMsg('requestMsg', "You can't send a request to yourself.", 'error');
-    return;
-  }
-  if(!db.profiles[target]){
-    showMsg('requestMsg', 'No profile found with that exact name.', 'error');
-    return;
-  }
-  if(activeRelationshipFor(currentUser)){
-    showMsg('requestMsg', 'You already have an active confirmed relationship. End it first.', 'error');
-    return;
-  }
-  if(activeRelationshipFor(target)){
-    showMsg('requestMsg', `${target} is already in a confirmed relationship with someone else.`, 'error');
-    return;
-  }
-  const existing = db.requests.find(r => r.from===currentUser && r.to===target && r.status==='pending');
-  if(existing){
-    showMsg('requestMsg', 'You already have a pending request to this person.', 'error');
-    return;
-  }
-  db.requests.push({ from: currentUser, to: target, status: 'pending' });
-  document.getElementById('requestTarget').value = '';
-  showMsg('requestMsg', `Request sent to ${target}. They must accept for anything to become public.`, 'success');
-}
-
-function respondRequest(index, accept){
-  const req = db.requests[index];
-  if(!req || req.status !== 'pending') return;
-
-  if(accept){
-    if(activeRelationshipFor(req.from) || activeRelationshipFor(req.to)){
-      req.status = 'declined';
-      renderRequests();
-      return;
-    }
-    req.status = 'accepted';
-    db.relationships.push({
-      a: req.from,
-      b: req.to,
-      date: new Date().toLocaleDateString(),
-      active: true
-    });
-  } else {
-    req.status = 'declined';
-  }
-  renderRequests();
-}
-
-function renderRequests(){
-  const incoming = document.getElementById('incomingList');
-  const outgoing = document.getElementById('outgoingList');
-
-  if(!currentUser){
-    incoming.innerHTML = '<div class="empty">Create a profile to see requests.</div>';
-    outgoing.innerHTML = '';
-    return;
-  }
-
-  const inc = db.requests.map((r,i)=>({...r,i})).filter(r => r.to===currentUser && r.status==='pending');
-  const out = db.requests.map((r,i)=>({...r,i})).filter(r => r.from===currentUser);
-
-  incoming.innerHTML = inc.length ? inc.map(r => `
-    <div class="pending-item">
-      <span>${r.from} wants to confirm a relationship with you</span>
-      <span class="pending-actions">
-        <button class="accept" onclick="respondRequest(${r.i}, true)">Accept</button>
-        <button class="decline" onclick="respondRequest(${r.i}, false)">Decline</button>
-      </span>
-    </div>
-  `).join('') : '<div class="empty">No pending requests.</div>';
-
-  outgoing.innerHTML = out.length ? out.map(r => `
-    <div class="pending-item">
-      <span>To ${r.to}</span>
-      <span class="sub" style="color:var(--muted)">${r.status}</span>
-    </div>
-  `).join('') : '<div class="empty">You haven\'t sent any requests.</div>';
-}
-
-function endRelationship(index){
-  db.relationships[index].active = false;
-  renderStatus();
-}
-
-function renderStatus(){
-  const area = document.getElementById('statusArea');
-  if(!currentUser){
-    area.innerHTML = '<div class="card"><div class="empty">Create a profile to see your status.</div></div>';
-    return;
-  }
-  const rel = activeRelationshipFor(currentUser);
-  if(!rel){
-    area.innerHTML = '<div class="card"><div class="empty">No confirmed relationship yet. Send or accept a request to get started.</div></div>';
-    return;
-  }
-  const other = rel.a === currentUser ? rel.b : rel.a;
-  const meP = db.profiles[currentUser];
-  const otherP = db.profiles[other];
-  const relIndex = db.relationships.indexOf(rel);
-
-  area.innerHTML = `
-    <div class="couple-banner">
-      <div class="couple-photos">
-        <img src="${meP.photo || placeholderAvatar(meP.name)}">
-        <img src="${otherP.photo || placeholderAvatar(otherP.name)}">
-      </div>
-      <div class="couple-title">${meP.name} 💕 ${otherP.name}</div>
-      <div class="couple-sub">Confirmed by both on ${rel.date}</div>
-    </div>
-    <div class="card">
-      <button class="secondary danger" onclick="endRelationship(${relIndex})">End this relationship</button>
-    </div>
-  `;
-}
-
-renderAccount();
+rocket.style.left='4%';rocket.style.top='88%';
+round();
 </script>
-
 </body>
 </html>
